@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="//tools.minawork.asia/main-sitemap.xsl"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd http://www.google.com/schemas/sitemap-image/1.1 http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	<url>
+		<loc>https://tools.minawork.asia/blocks/custom-footer/</loc>
+		<lastmod>2025-05-22T06:47:23+00:00</lastmod>
+		<image:image>
+			<image:loc>https://tools.minawork.asia/wp-content/uploads/ser_1.webp</image:loc>
+		</image:image>
+		<image:image>
+			<image:loc>https://tools.minawork.asia/wp-content/uploads/ser_2.webp</image:loc>
+		</image:image>
+		<image:image>
+			<image:loc>https://tools.minawork.asia/wp-content/uploads/ser_3.webp</image:loc>
+		</image:image>
+		<image:image>
+			<image:loc>https://tools.minawork.asia/wp-content/uploads/ser_4.webp</image:loc>
+		</image:image>
+		<image:image>
+			<image:loc>https://tools.minawork.asia/wp-content/uploads/Blue-Waves-Surfing-Club-Logo-4.webp</image:loc>
+		</image:image>
+	</url>
+	<url>
+		<loc>https://tools.minawork.asia/blocks/product-support/</loc>
+		<lastmod>2025-05-14T13:22:05+00:00</lastmod>
+	</url>
+</urlset>

@@ -1,0 +1,339 @@
+/**
+ * DXMT Admin - Login Page Theme
+ * Modern & Professional Login Styling
+ */
+
+/* Override body background */
+body {
+    font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif !important;
+    background: linear-gradient(135deg, #1A1A1A 0%, #2d2d2d 50%, #1A1A1A 100%) !important;
+    min-height: 100vh;
+}
+
+/* Background overlay pattern */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C9A961' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Login container */
+#login {
+    position: relative;
+    z-index: 1;
+    padding-top: 5%;
+}
+
+/* Logo area */
+.lg-logo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.lg-logo img {
+    max-width: 180px;
+    height: auto;
+}
+
+.lg-logo h1 {
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: 700;
+    margin-top: 15px;
+    letter-spacing: 2px;
+}
+
+.lg-logo h1 span {
+    color: #C9A961;
+}
+
+/* Login box */
+.login-box,
+.lg-content {
+    background: rgba(255, 255, 255, 0.98);
+    border-radius: 16px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+    padding: 40px;
+    max-width: 420px;
+    margin: 0 auto;
+    backdrop-filter: blur(10px);
+}
+
+/* Login header */
+.lg-content h2,
+.login-box h2 {
+    color: #1A1A1A;
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.lg-content h2::after,
+.login-box h2::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(90deg, #C9A961, #8B5A3C);
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
+
+/* Form groups */
+.lg-content .lg-group,
+.login-box .form-group {
+    margin-bottom: 20px;
+}
+
+/* Labels */
+.lg-content label,
+.login-box label {
+    color: #333;
+    font-weight: 500;
+    font-size: 14px;
+    margin-bottom: 8px;
+    display: block;
+}
+
+/* Input fields */
+.lg-content input[type="text"],
+.lg-content input[type="password"],
+.lg-content input[type="email"],
+.login-box input[type="text"],
+.login-box input[type="password"],
+.login-box input[type="email"],
+.lg-content .form-control,
+.login-box .form-control {
+    width: 100%;
+    padding: 14px 18px;
+    border: 2px solid #e5e5e5;
+    border-radius: 10px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    background: #fafafa;
+}
+
+.lg-content input:focus,
+.login-box input:focus,
+.lg-content .form-control:focus,
+.login-box .form-control:focus {
+    border-color: #C9A961;
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(201, 169, 97, 0.15);
+    outline: none;
+}
+
+.lg-content input::placeholder,
+.login-box input::placeholder {
+    color: #999;
+}
+
+/* Input icons */
+.lg-content .lg-group .fa,
+.login-box .form-group .fa {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #C9A961;
+    font-size: 18px;
+}
+
+.lg-content .lg-group,
+.login-box .form-group {
+    position: relative;
+}
+
+/* Login button */
+.lg-content .lg-btn,
+.lg-content button[type="submit"],
+.login-box .btn-login,
+.login-box button[type="submit"],
+.btn-login {
+    width: 100%;
+    padding: 14px 30px;
+    background: linear-gradient(135deg, #C9A961 0%, #8B5A3C 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 10px;
+}
+
+.lg-content .lg-btn:hover,
+.lg-content button[type="submit"]:hover,
+.login-box .btn-login:hover,
+.login-box button[type="submit"]:hover,
+.btn-login:hover {
+    background: linear-gradient(135deg, #8B5A3C 0%, #6d4730 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(139, 90, 60, 0.4);
+}
+
+.lg-content .lg-btn:active,
+.login-box .btn-login:active,
+.btn-login:active {
+    transform: translateY(0);
+}
+
+/* Remember me checkbox */
+.lg-content .lg-check,
+.login-box .checkbox {
+    margin: 20px 0;
+}
+
+.lg-content .lg-check label,
+.login-box .checkbox label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 400;
+    color: #666;
+}
+
+.lg-content .lg-check input[type="checkbox"],
+.login-box .checkbox input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+    accent-color: #C9A961;
+}
+
+/* Forgot password link */
+.lg-content a,
+.login-box a {
+    color: #C9A961;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.lg-content a:hover,
+.login-box a:hover {
+    color: #8B5A3C;
+    text-decoration: underline;
+}
+
+/* Error messages */
+.lg-content .alert,
+.login-box .alert,
+.alert-danger {
+    background: #fff5f5;
+    border: none;
+    border-left: 4px solid #dc3545;
+    color: #c82333;
+    padding: 12px 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+/* Success messages */
+.alert-success {
+    background: #d4edda;
+    border-left: 4px solid #28a745;
+    color: #155724;
+}
+
+/* Footer */
+.lg-footer,
+.login-footer {
+    text-align: center;
+    margin-top: 30px;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 13px;
+}
+
+.lg-footer a,
+.login-footer a {
+    color: #C9A961;
+}
+
+/* Copyright */
+.lg-copyright {
+    text-align: center;
+    margin-top: 40px;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 12px;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .login-box,
+    .lg-content {
+        margin: 20px;
+        padding: 30px 25px;
+    }
+
+    #login {
+        padding-top: 30px;
+    }
+}
+
+/* iOS Zoom Fix - Prevent auto-zoom on input focus */
+@media screen and (max-width: 767px) {
+    .lg-content input[type="text"],
+    .lg-content input[type="password"],
+    .lg-content input[type="email"],
+    .login-box input[type="text"],
+    .login-box input[type="password"],
+    .login-box input[type="email"],
+    .lg-content .form-control,
+    .login-box .form-control {
+        font-size: 16px !important;
+    }
+}
+
+/* Animation */
+.login-box,
+.lg-content {
+    animation: fadeInUp 0.5s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Loading state */
+.btn-login.loading,
+.lg-btn.loading {
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.btn-login.loading::after,
+.lg-btn.loading::after {
+    content: '';
+    width: 18px;
+    height: 18px;
+    border: 2px solid #ffffff;
+    border-top-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    margin-left: 10px;
+    animation: spin 0.8s linear infinite;
+    vertical-align: middle;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}

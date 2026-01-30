@@ -1,0 +1,283 @@
+/**
+ * Project Tabs CSS - Admin Panel
+ * Styles for project article editor with 6 tabs
+ */
+
+/* ============================================
+   Tab Container
+   ============================================ */
+.project-tabs {
+    margin: 0;
+    padding: 0;
+}
+
+/* ============================================
+   Tab Navigation
+   ============================================ */
+.project-tabs .nav-tabs {
+    border-bottom: 2px solid #ddd;
+    margin-bottom: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    background: #f8f9fa;
+    border-radius: 5px 5px 0 0;
+}
+
+.project-tabs .nav-tabs .nav-item {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.project-tabs .nav-tabs .nav-link {
+    display: block;
+    padding: 14px 20px;
+    margin: 0;
+    border: none;
+    border-bottom: 3px solid transparent;
+    border-radius: 0;
+    background: transparent;
+    color: #666;
+    font-weight: 500;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.project-tabs .nav-tabs .nav-link:hover {
+    background: #e9ecef;
+    color: #333;
+    border-bottom-color: #ccc;
+}
+
+.project-tabs .nav-tabs .nav-link.active {
+    background: #fff;
+    color: #337ab7;
+    border-bottom: 3px solid #337ab7;
+    font-weight: 600;
+}
+
+.project-tabs .nav-tabs .nav-link i {
+    margin-right: 6px;
+}
+
+/* ============================================
+   Tab Content
+   ============================================ */
+.project-tabs .tab-content {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+    padding: 0;
+    min-height: 300px;
+}
+
+.project-tabs .tab-pane {
+    display: none;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 0.15s ease-in-out;
+}
+
+.project-tabs .tab-pane.active {
+    display: block;
+    opacity: 1;
+}
+
+/* Fallback for show class (Bootstrap 3/4 compatibility) */
+.project-tabs .tab-pane.show {
+    display: block;
+    opacity: 1;
+}
+
+.project-tabs .tab-pane.fade {
+    opacity: 0;
+    transition: opacity 0.15s linear;
+}
+
+.project-tabs .tab-pane.fade.show,
+.project-tabs .tab-pane.fade.active {
+    opacity: 1;
+}
+
+/* ============================================
+   Project Info Box
+   ============================================ */
+.project-info-box {
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+    padding: 15px 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    border-left: 4px solid #337ab7;
+}
+
+.project-info-box h4 {
+    margin: 0 0 8px 0;
+    padding: 0;
+    color: #333;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.project-info-box h4 i {
+    margin-right: 8px;
+    color: #337ab7;
+}
+
+.project-info-box p {
+    margin: 0;
+    padding: 0;
+    color: #666;
+    font-size: 13px;
+}
+
+/* ============================================
+   Upload Preview Box
+   ============================================ */
+.upload-preview-box {
+    border: 2px dashed #ddd;
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+    margin-top: 15px;
+    background: #fafafa;
+}
+
+.upload-preview-box img {
+    max-width: 400px;
+    max-height: 250px;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.upload-preview-box label {
+    display: block;
+    margin-top: 10px;
+}
+
+/* ============================================
+   Gallery Preview
+   ============================================ */
+.gallery-preview {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.gallery-preview .gallery-item {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.gallery-preview .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ============================================
+   Table inside tabs
+   ============================================ */
+.project-tabs .tab-pane .table {
+    margin-bottom: 0;
+}
+
+.project-tabs .tab-pane .table td {
+    padding: 12px 8px;
+    vertical-align: middle;
+    border-top: 1px solid #eee;
+}
+
+.project-tabs .tab-pane .table tr:first-child td {
+    border-top: none;
+}
+
+.project-tabs .tab-pane .table td label {
+    margin-bottom: 0;
+    font-weight: 500;
+    color: #555;
+}
+
+/* ============================================
+   Form Controls inside tabs
+   ============================================ */
+.project-tabs .form-control {
+    border-radius: 4px;
+}
+
+.project-tabs select.form-control {
+    height: 38px;
+}
+
+.project-tabs textarea.form-control {
+    min-height: 100px;
+}
+
+/* ============================================
+   Submit Buttons Area
+   ============================================ */
+.project-tabs + .text-center,
+.panel-body > .text-center {
+    background: #f8f9fa;
+    padding: 20px;
+    border-top: 1px solid #ddd;
+    margin: 20px -15px -15px -15px;
+    border-radius: 0 0 5px 5px;
+}
+
+/* ============================================
+   Badge for project mode indicator
+   ============================================ */
+.panel-heading .badge {
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 3px;
+    vertical-align: middle;
+}
+
+/* ============================================
+   File Input Overrides
+   ============================================ */
+.project-tabs .file-input {
+    margin-bottom: 0;
+}
+
+.project-tabs .file-preview {
+    border-radius: 5px;
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+@media (max-width: 768px) {
+    .project-tabs .nav-tabs {
+        flex-direction: column;
+    }
+
+    .project-tabs .nav-tabs .nav-link {
+        border-bottom: none;
+        border-left: 3px solid transparent;
+    }
+
+    .project-tabs .nav-tabs .nav-link.active {
+        border-bottom: none;
+        border-left: 3px solid #337ab7;
+    }
+
+    .project-tabs .tab-pane {
+        padding: 15px;
+    }
+
+    .upload-preview-box img {
+        max-width: 100%;
+    }
+}

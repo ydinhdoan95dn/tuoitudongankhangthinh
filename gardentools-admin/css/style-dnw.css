@@ -1,0 +1,51 @@
+/* ydd.dxmt - Administration Control Panel */
+.logo {
+	background: url(../images/logo-dnw.png) left center no-repeat;
+	margin: 0 auto 20px;
+	width: 320px;
+	height: 105px;
+}
+.support-note {
+	margin-top: 10px;
+	text-align: right;
+}
+.support-note span{
+	color: #999;
+	width: auto;
+	display: inline-block;
+	font-size: 12px;
+	letter-spacing: 0px;
+	text-indent: 2px;
+}
+.support-note .support-text:before {
+	content: "Hỗ trợ kỹ thuật: 05116 51 21 91" !important;
+}
+
+#footer-admin {
+	background: rgba(0,0,0,0.3);
+	position: fixed;
+	z-index: 5;
+	padding: 5px 10px;
+	width: 220px;
+	left: 0;
+	bottom: 0;
+	color: #1d92af;
+	font-size: 12px;
+}
+#footer-admin p {
+	margin: 0 !important;
+}
+#footer-admin .footer-text .company:before {
+	content: "2025 \00a9  mry-dxmt" !important;
+}
+#footer-admin .footer-text .email:before {
+	content: "ydinhdoan95@gmail.com" !important;
+}
+#footer-admin .footer-text .phone:before {
+	content: "0988 207 004" !important;
+}
+@media (max-width: 767px)  {
+	#footer-admin {
+		display: none !important;
+	}
+}

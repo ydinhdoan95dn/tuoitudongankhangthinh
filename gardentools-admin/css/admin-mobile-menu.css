@@ -1,0 +1,876 @@
+/**
+ * ADMIN MOBILE MENU v2.1
+ * CSS hoan toan doc lap - Prefix: adm-
+ * Su dung !important de tranh xung dot
+ * Fix 767px breakpoint issue
+ */
+
+/* ========================================
+   AN MAC DINH - Chi hien thi khi <= 991px
+   ======================================== */
+.adm-mobile-wrapper,
+.adm-header,
+.adm-overlay,
+.adm-sidebar,
+.adm-bottom-nav,
+#admSidebar,
+#admOverlay {
+    display: none !important;
+}
+
+/* ========================================
+   HIEN THI TREN MOBILE (<= 991px)
+   ======================================== */
+@media screen and (max-width: 991px) {
+
+    /* === HIEN THI MOBILE WRAPPER === */
+    .adm-mobile-wrapper {
+        display: block !important;
+        position: relative !important;
+        z-index: 99900 !important;
+    }
+
+    /* === AN DESKTOP MENU === */
+    .navbar-static-side,
+    .navbar-default.sidebar,
+    .sidebar-minified,
+    .navbar-header,
+    .nav.navbar-top-links,
+    .navbar-top-links,
+    #side-menu,
+    .sidebar-nav,
+    .sidebar {
+        display: none !important;
+        visibility: hidden !important;
+        width: 0 !important;
+        height: 0 !important;
+        overflow: hidden !important;
+    }
+
+    /* === DIEU CHINH PAGE WRAPPER === */
+    #page-wrapper {
+        margin-left: 0 !important;
+        margin-top: 60px !important;
+        padding: 15px !important;
+        padding-bottom: 80px !important;
+        min-height: 100vh !important;
+    }
+
+    /* === AN NAV.NAVBAR-DEFAULT === */
+    nav.navbar-default,
+    nav.navbar {
+        min-height: 0 !important;
+        margin-bottom: 0 !important;
+        border: none !important;
+    }
+
+    .navbar-default .navbar-collapse {
+        display: none !important;
+    }
+
+    /* An footer text desktop */
+    .footer-text.desktop-only,
+    #footer-admin .footer-text {
+        display: none !important;
+    }
+
+    /* ========================================
+       HEADER BAR
+       ======================================== */
+    .adm-header {
+        display: flex !important;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        height: 56px !important;
+        background: #1a252f !important;
+        background: linear-gradient(135deg, #1a252f 0%, #2c3e50 100%) !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        padding: 0 12px !important;
+        z-index: 99995 !important;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.3) !important;
+    }
+
+    .adm-header-btn {
+        width: 44px !important;
+        height: 44px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        background: rgba(255,255,255,0.1) !important;
+        border: none !important;
+        border-radius: 8px !important;
+        color: #fff !important;
+        font-size: 20px !important;
+        cursor: pointer !important;
+        text-decoration: none !important;
+        outline: none !important;
+        margin-right: 0;
+    }
+
+    .adm-header-btn:hover,
+    .adm-header-btn:focus,
+    .adm-header-btn:active {
+        background: rgba(255,255,255,0.2) !important;
+        color: #fff !important;
+        text-decoration: none !important;
+    }
+
+    .adm-header-title {
+        display: flex !important;
+        align-items: center !important;
+        gap: 10px !important;
+        color: #fff !important;
+        font-size: 16px !important;
+        font-weight: 600 !important;
+    }
+
+    .adm-header-title img {
+        height: 32px !important;
+        width: auto !important;
+    }
+
+    /* Header Actions Container */
+    .adm-header-actions {
+        display: flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+        margin-right: 0;
+    }
+
+    /* ========================================
+       NOTIFICATION BUTTON & DROPDOWN
+       ======================================== */
+    .adm-notify-btn {
+        position: relative !important;
+    }
+
+    .adm-notify-badge {
+        position: absolute !important;
+        top: 4px !important;
+        right: 4px !important;
+        min-width: 18px !important;
+        height: 18px !important;
+        padding: 0 5px !important;
+        background: #e74c3c !important;
+        border-radius: 9px !important;
+        font-size: 11px !important;
+        font-weight: 600 !important;
+        line-height: 18px !important;
+        text-align: left!important;
+        color: #fff !important;
+    }
+
+    .adm-notify-dropdown {
+        display: none;
+        position: fixed !important;
+        top: 56px !important;
+        right: 10px !important;
+        width: calc(100% - 20px) !important;
+        max-width: 360px !important;
+        background: #fff !important;
+        border-radius: 12px !important;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.2) !important;
+        z-index: 99998 !important;
+        overflow: hidden !important;
+        animation: admSlideDown 0.2s ease !important;
+    }
+
+    .adm-notify-dropdown.adm-open {
+        display: block !important;
+    }
+
+    @keyframes admSlideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .adm-notify-header {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        padding: 14px 16px !important;
+        background: linear-gradient(135deg, #1a252f 0%, #2c3e50 100%) !important;
+        color: #fff !important;
+        font-size: 14px !important;
+        font-weight: 600 !important;
+    }
+
+    .adm-notify-header i {
+        margin-right: 8px !important;
+    }
+
+    .adm-notify-close {
+        width: 28px !important;
+        height: 28px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        background: rgba(255,255,255,0.1) !important;
+        border: none !important;
+        border-radius: 50% !important;
+        color: #fff !important;
+        font-size: 14px !important;
+        cursor: pointer !important;
+    }
+
+    .adm-notify-close:hover {
+        background: rgba(255,255,255,0.2) !important;
+    }
+
+    .adm-notify-list {
+        max-height: 320px !important;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+    }
+
+    .adm-notify-item {
+        display: flex !important;
+        align-items: center !important;
+        padding: 12px 16px !important;
+        border-bottom: 1px solid #f0f0f0 !important;
+        gap: 12px !important;
+        transition: background 0.2s !important;
+    }
+
+    .adm-notify-item:hover {
+        background: #f9f9f9 !important;
+    }
+
+    .adm-notify-icon {
+        width: 40px !important;
+        height: 40px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        border-radius: 50% !important;
+        font-size: 16px !important;
+        flex-shrink: 0 !important;
+    }
+
+    .adm-notify-icon.contact {
+        background: linear-gradient(135deg, #3498db, #2980b9) !important;
+        color: #fff !important;
+    }
+
+    .adm-notify-icon.order {
+        background: linear-gradient(135deg, #27ae60, #229954) !important;
+        color: #fff !important;
+    }
+
+    .adm-notify-content {
+        flex: 1 !important;
+        min-width: 0 !important;
+    }
+
+    .adm-notify-name {
+        font-size: 14px !important;
+        font-weight: 500 !important;
+        color: #333 !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+    }
+
+    .adm-notify-time {
+        font-size: 12px !important;
+        color: #999 !important;
+        margin-top: 2px !important;
+    }
+
+    .adm-notify-view {
+        width: 36px !important;
+        height: 36px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        background: #f39c12 !important;
+        border: none !important;
+        border-radius: 8px !important;
+        color: #fff !important;
+        font-size: 14px !important;
+        cursor: pointer !important;
+        flex-shrink: 0 !important;
+        transition: background 0.2s !important;
+    }
+
+    .adm-notify-view:hover {
+        background: #e67e22 !important;
+    }
+
+    .adm-notify-footer {
+        display: flex !important;
+        border-top: 1px solid #eee !important;
+    }
+
+    .adm-notify-link {
+        flex: 1 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 6px !important;
+        padding: 14px !important;
+        color: #666 !important;
+        font-size: 13px !important;
+        font-weight: 500 !important;
+        text-decoration: none !important;
+        transition: all 0.2s !important;
+    }
+
+    .adm-notify-link:first-child {
+        border-right: 1px solid #eee !important;
+    }
+
+    .adm-notify-link:hover {
+        background: #f5f5f5 !important;
+        color: #0066b3 !important;
+        text-decoration: none !important;
+    }
+
+    /* ========================================
+       OVERLAY
+       ======================================== */
+    .adm-overlay {
+        display: block !important;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        background: rgba(0,0,0,0.6) !important;
+        z-index: 99996 !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        transition: opacity 0.3s, visibility 0.3s !important;
+    }
+
+    .adm-overlay.adm-active {
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+
+    /* ========================================
+       SIDEBAR
+       ======================================== */
+    .adm-sidebar {
+        display: flex !important;
+        flex-direction: column !important;
+        position: fixed !important;
+        top: 0 !important;
+        left: -300px !important;
+        width: 300px !important;
+        height: 100% !important;
+        background: #1a252f !important;
+        background: linear-gradient(180deg, #1a252f 0%, #2c3e50 100%) !important;
+        z-index: 99997 !important;
+        transition: left 0.3s ease !important;
+        overflow: hidden !important;
+    }
+
+    .adm-sidebar.adm-open {
+        left: 0 !important;
+        box-shadow: 5px 0 30px rgba(0,0,0,0.4) !important;
+    }
+
+    /* Sidebar Header */
+    .adm-sidebar-header {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        padding: 16px !important;
+        background: rgba(0,0,0,0.2) !important;
+        border-bottom: 1px solid rgba(255,255,255,0.1) !important;
+        flex-shrink: 0 !important;
+        margin: 0;
+    }
+
+    .adm-user-info {
+        display: flex !important;
+        align-items: center !important;
+        gap: 12px !important;
+        margin-left: 0;
+    }
+
+    .adm-avatar {
+        width: 44px !important;
+        height: 44px !important;
+        background: linear-gradient(135deg, #0066b3, #00aeef) !important;
+        border-radius: 50% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        color: #fff !important;
+        font-size: 18px !important;
+    }
+
+    .adm-user-name {
+        display: block !important;
+        color: #fff !important;
+        font-size: 14px !important;
+        font-weight: 600 !important;
+    }
+
+    .adm-user-role {
+        display: block !important;
+        color: rgba(255,255,255,0.7) !important;
+        font-size: 12px !important;
+    }
+
+    .adm-close-btn {
+        width: 36px !important;
+        height: 36px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        background: rgba(255,255,255,0.1) !important;
+        border: none !important;
+        border-radius: 50% !important;
+        color: #fff !important;
+        font-size: 16px !important;
+        cursor: pointer !important;
+    }
+
+    .adm-close-btn:hover {
+        background: rgba(231, 76, 60, 0.8) !important;
+    }
+
+    /* Menu Container */
+    .adm-menu-container {
+        flex: 1 !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        -webkit-overflow-scrolling: touch !important;
+        padding: 8px 0 !important;
+        margin: 0;
+    }
+
+    /* Menu List */
+    .adm-menu {
+        list-style: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .adm-menu-item {
+        border-bottom: 1px solid rgba(255,255,255,0.05) !important;
+        list-style: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* Menu Link */
+    .adm-menu-link {
+        display: flex !important;
+        align-items: center !important;
+        padding: 14px 16px !important;
+        color: rgba(255,255,255,0.7) !important;
+        text-decoration: none !important;
+        font-size: 14px !important;
+        gap: 12px !important;
+        min-height: 44px !important;
+        transition: all 0.2s !important;
+    }
+
+    .adm-menu-link:hover,
+    .adm-menu-link:focus,
+    .adm-menu-link.adm-active {
+        background: rgba(255,255,255,0.1) !important;
+        color: #fff !important;
+        text-decoration: none !important;
+    }
+
+    .adm-menu-link i {
+        width: 20px !important;
+        text-align: left !important;
+        font-size: 16px !important;
+        flex-shrink: 0 !important;
+    }
+
+    .adm-menu-link > span {
+        flex: 1 !important;
+    }
+
+    /* Arrow */
+    .adm-arrow {
+        font-size: 12px !important;
+        transition: transform 0.3s !important;
+        color: rgba(255,255,255,0.5) !important;
+    }
+
+    .adm-arrow.adm-rotate {
+        transform: rotate(180deg) !important;
+    }
+
+    /* Submenu */
+    .adm-submenu {
+        list-style: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: rgba(0,0,0,0.2) !important;
+        max-height: 0 !important;
+        overflow: hidden !important;
+        transition: max-height 0.4s ease !important;
+    }
+
+    .adm-submenu.adm-open {
+        max-height: 2000px !important;
+    }
+
+    .adm-submenu-item {
+        border-top: 1px solid rgba(255,255,255,0.03) !important;
+        list-style: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .adm-submenu-link {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        text-align: left !important;
+        padding: 12px 16px 12px 48px !important;
+        color: rgba(255,255,255,0.6) !important;
+        text-decoration: none !important;
+        font-size: 13px !important;
+        gap: 10px !important;
+        min-height: 40px !important;
+        transition: all 0.2s !important;
+    }
+
+    .adm-submenu-link span {
+        flex: 1 !important;
+        text-align: left !important;
+    }
+
+    .adm-submenu-link:hover,
+    .adm-submenu-link:focus,
+    .adm-submenu-link.adm-active {
+        background: rgba(255,255,255,0.05) !important;
+        color: #fff !important;
+        text-decoration: none !important;
+    }
+
+    .adm-submenu-link i {
+        width: 18px !important;
+        text-align: left !important;
+        font-size: 14px !important;
+        flex-shrink: 0 !important;
+    }
+
+    /* Sidebar Footer */
+    .adm-sidebar-footer {
+        display: flex !important;
+        border-top: 1px solid rgba(255,255,255,0.1) !important;
+        padding: 8px !important;
+        gap: 8px !important;
+        flex-shrink: 0 !important;
+        background: rgba(0,0,0,0.1) !important;
+    }
+
+    .adm-footer-link {
+        flex: 1 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 8px !important;
+        padding: 12px !important;
+        color: rgba(255,255,255,0.7) !important;
+        text-decoration: none !important;
+        font-size: 13px !important;
+        background: rgba(255,255,255,0.05) !important;
+        border-radius: 8px !important;
+        transition: all 0.2s !important;
+    }
+
+    .adm-footer-link:hover,
+    .adm-footer-link:focus {
+        background: rgba(255,255,255,0.1) !important;
+        color: #fff !important;
+        text-decoration: none !important;
+    }
+
+    .adm-footer-link.adm-logout {
+        background: rgba(231, 76, 60, 0.2) !important;
+        color: #e74c3c !important;
+    }
+
+    .adm-footer-link.adm-logout:hover {
+        background: rgba(231, 76, 60, 0.4) !important;
+    }
+
+    /* ========================================
+       BOTTOM NAVIGATION
+       ======================================== */
+    .adm-bottom-nav {
+        display: flex !important;
+        position: fixed !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        height: 60px !important;
+        background: #fff !important;
+        border-top: 1px solid #e0e0e0 !important;
+        z-index: 99994 !important;
+        box-shadow: 0 -4px 20px rgba(0,0,0,0.1) !important;
+    }
+
+    .adm-nav-item {
+        flex: 1 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 8px 4px !important;
+        color: #666 !important;
+        text-decoration: none !important;
+        font-size: 11px !important;
+        gap: 4px !important;
+        transition: color 0.2s !important;
+    }
+
+    .adm-nav-item:hover,
+    .adm-nav-item:focus,
+    .adm-nav-item.adm-active {
+        color: #0066b3 !important;
+        text-decoration: none !important;
+    }
+
+    .adm-nav-item i {
+        font-size: 20px !important;
+    }
+
+    .adm-nav-item span {
+        line-height: 1 !important;
+    }
+}
+
+/* ========================================
+   MOBILE NHO HON (< 768px) - Fix 767px issue
+   Dam bao mobile menu van hien thi
+   Su dung ID selector de tang specificity
+   ======================================== */
+@media screen and (max-width: 767px) {
+    /* Re-enforce mobile menu visibility with ID selectors */
+    .adm-mobile-wrapper,
+    div.adm-mobile-wrapper {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        position: relative !important;
+        z-index: 99900 !important;
+    }
+
+    .adm-header,
+    div.adm-header {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        height: 56px !important;
+        z-index: 99995 !important;
+    }
+
+    .adm-sidebar,
+    div.adm-sidebar,
+    #admSidebar {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        flex-direction: column !important;
+        position: fixed !important;
+        top: 0 !important;
+        left: -300px !important;
+        width: 300px !important;
+        height: 100% !important;
+        z-index: 99997 !important;
+    }
+
+    .adm-sidebar.adm-open,
+    div.adm-sidebar.adm-open,
+    #admSidebar.adm-open {
+        left: 0 !important;
+    }
+
+    .adm-overlay,
+    div.adm-overlay,
+    #admOverlay {
+        display: block !important;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        z-index: 99996 !important;
+    }
+
+    .adm-bottom-nav,
+    div.adm-bottom-nav {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        position: fixed !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        height: 60px !important;
+        z-index: 99994 !important;
+    }
+
+    /* Re-hide desktop elements */
+    .navbar-static-side,
+    .navbar-default.sidebar,
+    .sidebar-minified,
+    .navbar-header,
+    .nav.navbar-top-links,
+    .navbar-top-links,
+    #side-menu,
+    .sidebar-nav,
+    .sidebar {
+        display: none !important;
+        visibility: hidden !important;
+        width: 0 !important;
+        height: 0 !important;
+        overflow: hidden !important;
+    }
+
+    /* Page wrapper adjustment */
+    #page-wrapper {
+        margin-left: 0 !important;
+        margin-top: 60px !important;
+        padding-bottom: 80px !important;
+    }
+}
+
+/* ========================================
+   MOBILE NHO HON (< 480px)
+   ======================================== */
+@media screen and (max-width: 480px) {
+    .adm-sidebar {
+        width: 280px !important;
+        left: -280px !important;
+    }
+
+    .adm-header-title span {
+        display: none !important;
+    }
+
+    .adm-nav-item span {
+        font-size: 10px !important;
+    }
+
+    .adm-nav-item i {
+        font-size: 18px !important;
+    }
+
+    .adm-menu-link {
+        padding: 12px 14px !important;
+        font-size: 13px !important;
+    }
+
+    .adm-submenu-link {
+        padding: 10px 14px 10px 44px !important;
+        font-size: 12px !important;
+        justify-content: flex-start !important;
+        text-align: left !important;
+    }
+}
+
+/* ========================================
+   ULTIMATE OVERRIDE - TAT CA SCREEN SIZES
+   Dung ID selector + !important de dam bao
+   mobile menu luon hien thi khi <= 991px
+
+   FIX: style-dnw.css an #footer-admin o 767px
+   Phai override bang specificity cao hon
+   ======================================== */
+@media only screen and (max-width: 991px) {
+    /* CRITICAL FIX: Override style-dnw.css hiding #footer-admin at 767px */
+    /* style-dnw.css: #footer-admin { display: none !important } */
+    /* We use higher specificity with body prefix */
+    body #footer-admin,
+    html body #footer-admin,
+    #wrapper #footer-admin {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        /* Reset footer styles for mobile - only show mobile menu */
+        background: transparent !important;
+        border: none !important;
+        padding: 0 !important;
+        position: static !important;
+        width: auto !important;
+    }
+
+    /* Hide only footer-text inside footer */
+    #footer-admin > .footer-text,
+    body #footer-admin > .footer-text {
+        display: none !important;
+    }
+
+    /* Force show mobile wrapper using body context */
+    body .adm-mobile-wrapper,
+    html body .adm-mobile-wrapper,
+    body > div > .adm-mobile-wrapper,
+    #wrapper .adm-mobile-wrapper,
+    #footer-admin .adm-mobile-wrapper,
+    #footer-admin > .adm-mobile-wrapper {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        position: relative !important;
+        z-index: 99900 !important;
+    }
+
+    /* Force header */
+    body .adm-header,
+    html body .adm-header,
+    .adm-mobile-wrapper .adm-header,
+    #footer-admin .adm-header {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+
+    /* Force sidebar */
+    body .adm-sidebar,
+    body #admSidebar,
+    html body .adm-sidebar,
+    .adm-mobile-wrapper .adm-sidebar,
+    #footer-admin .adm-sidebar,
+    #footer-admin #admSidebar {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+
+    /* Force bottom nav */
+    body .adm-bottom-nav,
+    html body .adm-bottom-nav,
+    .adm-mobile-wrapper .adm-bottom-nav,
+    #footer-admin .adm-bottom-nav {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+
+    /* Force overlay */
+    body .adm-overlay,
+    body #admOverlay,
+    html body .adm-overlay,
+    .adm-mobile-wrapper .adm-overlay,
+    #footer-admin .adm-overlay,
+    #footer-admin #admOverlay {
+        display: block !important;
+    }
+}

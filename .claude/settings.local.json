@@ -1,0 +1,38 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl:*)",
+      "Bash(unzip:*)",
+      "WebFetch(domain:tools.minawork.local)",
+      "Bash(C:xamppmysqlbinmysql.exe -u root -e \"USE \\\\`tools.minawork\\\\`; SHOW TABLES;\")",
+      "Bash(\"C:\\\\xampp\\\\mysql\\\\bin\\\\mysql.exe\" -u root -e \"SHOW TABLES;\" tools.minawork)",
+      "Bash(\"C:\\\\xampp\\\\mysql\\\\bin\\\\mysql.exe\" -u root -e \"SELECT ID, post_title, post_type, post_status FROM wp_posts WHERE post_type IN \\('product', 'page'\\) AND post_status = 'publish' LIMIT 50;\":*)",
+      "Bash(\"C:\\\\xampp\\\\mysql\\\\bin\\\\mysql.exe\" -u root -e \"SELECT t.term_id, t.name, t.slug, tt.taxonomy, tt.count FROM wp_terms t JOIN wp_term_taxonomy tt ON t.term_id = tt.term_id WHERE tt.taxonomy IN \\(''product_cat'', ''category''\\) ORDER BY tt.count DESC LIMIT 30;\" tools.minawork)",
+      "Bash(\"C:\\\\xampp\\\\mysql\\\\bin\\\\mysql.exe\" -u root -e \"SELECT COUNT\\(*\\) as total_products FROM wp_posts WHERE post_type = ''product'' AND post_status = ''publish'';\" tools.minawork)",
+      "Bash(\"C:\\\\xampp\\\\mysql\\\\bin\\\\mysql.exe\" -u root -e \"CREATE DATABASE IF NOT EXISTS gardentools CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;\")",
+      "Bash(xcopy:*)",
+      "Bash(robocopy:*)",
+      "Bash(cmd /c \"robocopy C:\\\\xampp\\\\htdocs\\\\kd.datxanhmientrung.vn\\\\dxmt-admin\\\\includes C:\\\\xampp\\\\htdocs\\\\tools.minawork.asia\\\\gardentools-admin\\\\includes /E /NP\")",
+      "Bash(cmd /c \"robocopy C:\\\\xampp\\\\htdocs\\\\kd.datxanhmientrung.vn\\\\dxmt-admin\\\\library C:\\\\xampp\\\\htdocs\\\\tools.minawork.asia\\\\gardentools-admin\\\\library /E /NP\")",
+      "Bash(cmd /c:*)",
+      "Bash(powershell -Command:*)",
+      "Bash(\"C:\\\\xampp\\\\mysql\\\\bin\\\\mysql.exe\" -u root -e \"SHOW TABLES;\" gardentools)",
+      "Bash(\"C:\\\\xampp\\\\mysql\\\\bin\\\\mysql.exe\" -u root -e \"SHOW DATABASES LIKE ''tools%'';\")",
+      "Bash(\"C:\\\\xampp\\\\php\\\\php.exe\" migrate_from_wordpress.php)",
+      "Bash(\"C:\\\\xampp\\\\mysql\\\\bin\\\\mysql.exe\" -u root -e \"SELECT ''Categories'' as Type, COUNT\\(*\\) as Total FROM gt_product_menu UNION ALL SELECT ''Products'', COUNT\\(*\\) FROM gt_product UNION ALL SELECT ''Pages'', COUNT\\(*\\) FROM gt_page UNION ALL SELECT ''Articles'', COUNT\\(*\\) FROM gt_article UNION ALL SELECT ''Settings'', COUNT\\(*\\) FROM gt_constant;\" gardentools)",
+      "Bash(\"C:\\\\xampp\\\\mysql\\\\bin\\\\mysql.exe\" -u root -e \"SELECT product_id, name, image FROM gt_product WHERE image != ''no'' LIMIT 10;\" gardentools)",
+      "Bash(\"C:\\\\xampp\\\\mysql\\\\bin\\\\mysql.exe\" -u root gardentools -e \"SELECT product_id, LEFT\\(name, 30\\) as name, image FROM gt_product LIMIT 10;\")",
+      "Bash(\"C:\\\\xampp\\\\mysql\\\\bin\\\\mysql.exe\" -u root gardentools -e \"INSERT INTO gt_slider \\(slider_group, name, image, link, sort_order, is_active\\) VALUES \\(''homepage'', ''Slider 1'', ''slider_1.webp'', ''#'', 1, 1\\), \\(''homepage'', ''Slider 2'', ''slider_2.webp'', ''#'', 2, 1\\);\")",
+      "Bash(\"C:\\\\xampp\\\\mysql\\\\bin\\\\mysql.exe\" -u root gardentools -e \"UPDATE gt_product_menu SET is_featured = 1; UPDATE gt_product SET is_featured = 1 WHERE product_id <= 12; UPDATE gt_product SET is_new = 1 WHERE product_id > 170;\")",
+      "Bash(\"C:\\\\xampp\\\\mysql\\\\bin\\\\mysql.exe\":*)",
+      "Bash(dir /b \"C:\\\\xampp\\\\htdocs\\\\tools.minawork.asia\\\\*.php\")",
+      "Bash(ls:*)",
+      "Bash(D:\\\\xampp\\\\apache\\\\bin\\\\httpd.exe:*)",
+      "Bash(git init:*)",
+      "Bash(git config:*)",
+      "Bash(git add:*)",
+      "Bash(git reset:*)",
+      "Bash(git rm:*)"
+    ]
+  }
+}

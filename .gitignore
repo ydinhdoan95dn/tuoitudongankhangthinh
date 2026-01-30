@@ -1,0 +1,38 @@
+# ========== CẤU HÌNH MÔI TRƯỜNG ==========
+config.php
+.htaccess
+
+# ========== FILE BACKUP LỚN ==========
+LUU_TAM/
+*.wpress
+*.sql.gz
+cloudflare/
+
+# ========== UPLOADS (Tùy chọn) ==========
+# Bỏ comment nếu không muốn sync uploads
+# uploads/*
+# !uploads/.gitkeep
+
+# ========== HỆ THỐNG ==========
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.bak
+*.swp
+*~
+
+# ========== IDE ==========
+.idea/
+.vscode/
+*.sublime-*
+nbproject/
+
+# ========== CACHE ==========
+cache/
+tmp/
+temp/
+
+# ========== VENDOR (nếu dùng Composer) ==========
+# vendor/
+# composer.lock
