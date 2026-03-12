@@ -112,17 +112,18 @@ C:\xampp\htdocs\tools.minawork.asia\
 
 ```css
 :root {
-    /* Primary - Forest Green */
-    --color-primary: #1B4332;
-    --color-primary-light: #2D6A4F;
-    --color-primary-lighter: #D8F3DC;
+    /* Primary - Garden Green (Vibrant) */
+    --color-primary: #15803D;
+    --color-primary-light: #22C55E;
+    --color-primary-lighter: #DCFCE7;
+    --color-primary-dark: #14532D;
 
-    /* Secondary - Vibrant Orange */
-    --color-secondary: #FF7A00;
-    --color-secondary-light: #FF9F45;
+    /* Secondary - Warm Orange */
+    --color-secondary: #F97316;
+    --color-secondary-light: #FB923C;
 
     /* Neutrals */
-    --color-bg: #FAFBF9;
+    --color-bg: #F8FAF8;
     --color-surface: #FFFFFF;
     --color-text: #1A2E1F;
 

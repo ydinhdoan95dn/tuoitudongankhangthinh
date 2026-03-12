@@ -116,7 +116,7 @@ include_once(_F_INCLUDES . DS . 'templates' . DS . 'header.php');
                             <?php if (!empty($article['image']) && $article['image'] != 'no'): ?>
                             <img src="<?= upload_url('article/' . $article['image']) ?>" alt="<?= htmlspecialchars($article['name']) ?>" loading="lazy">
                             <?php else: ?>
-                            <img src="<?= asset_url('images/no-image.jpg') ?>" alt="No image">
+                            <img src="<?= asset_url('images/no-image.svg') ?>" alt="Chưa có hình ảnh">
                             <?php endif; ?>
                         </a>
                         <div class="article-content">
@@ -206,7 +206,7 @@ include_once(_F_INCLUDES . DS . 'templates' . DS . 'header.php');
                                 <?php if (!empty($recent['image']) && $recent['image'] != 'no'): ?>
                                 <img src="<?= upload_url('article/' . $recent['image']) ?>" alt="<?= htmlspecialchars($recent['name']) ?>">
                                 <?php else: ?>
-                                <img src="<?= asset_url('images/no-image.jpg') ?>" alt="No image">
+                                <img src="<?= asset_url('images/no-image.svg') ?>" alt="Chưa có hình ảnh">
                                 <?php endif; ?>
                             </a>
                             <div class="recent-post-info">

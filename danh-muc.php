@@ -247,7 +247,7 @@ include_once(_F_INCLUDES . DS . 'templates' . DS . 'header.php');
                                         <img src="<?= upload_url('product/' . $product['image']) ?>"
                                             alt="<?= htmlspecialchars($product['name']) ?>" loading="lazy">
                                     <?php else: ?>
-                                        <img src="<?= asset_url('images/no-image.jpg') ?>" alt="No image">
+                                        <img src="<?= asset_url('images/no-image.svg') ?>" alt="Chưa có hình ảnh">
                                     <?php endif; ?>
 
                                     <?php if ($product['is_sale']): ?>

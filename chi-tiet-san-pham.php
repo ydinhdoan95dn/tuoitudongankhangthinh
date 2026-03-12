@@ -96,7 +96,7 @@ include_once(_F_INCLUDES . DS . 'templates' . DS . 'header.php');
                     <?php
                     $main_image = (!empty($product['image']) && $product['image'] != 'no')
                         ? upload_url('product/' . $product['image'])
-                        : asset_url('images/no-image.jpg');
+                        : asset_url('images/no-image.svg');
                     ?>
                     <img src="<?= $main_image ?>" alt="<?= htmlspecialchars($product['name']) ?>" id="mainProductImage">
 
@@ -272,7 +272,7 @@ include_once(_F_INCLUDES . DS . 'templates' . DS . 'header.php');
                                         <img src="<?= upload_url('product/' . $rel_product['image']) ?>"
                                             alt="<?= htmlspecialchars($rel_product['name']) ?>" loading="lazy">
                                     <?php else: ?>
-                                        <img src="<?= asset_url('images/no-image.jpg') ?>" alt="No image">
+                                        <img src="<?= asset_url('images/no-image.svg') ?>" alt="Chưa có hình ảnh">
                                     <?php endif; ?>
 
                                     <?php if ($rel_product['is_sale']): ?>

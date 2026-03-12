@@ -80,7 +80,7 @@ $site_email = isset($site_settings['site_email']) ? $site_settings['site_email']
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <meta name="theme-color" content="#1B4332">
+    <meta name="theme-color" content="#15803D">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title><?= htmlspecialchars($site_name) ?></title>
@@ -304,7 +304,13 @@ $site_email = isset($site_settings['site_email']) ? $site_settings['site_email']
                                 <?php endforeach; ?>
                             <?php else: ?>
                                 <div class="swiper-slide">
-                                    <img src="<?= upload_url('slider_1.webp') ?>" alt="Slider">
+                                    <img src="<?= upload_url('slider_1.webp') ?>" alt="Thiết bị tưới cây Garden Tools">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="<?= upload_url('slider_2.webp') ?>" alt="Dụng cụ làm vườn chính hãng">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="<?= upload_url('slider_3.webp') ?>" alt="Khuyến mãi thiết bị tưới tiêu">
                                 </div>
                             <?php endif; ?>
                         </div>
@@ -314,11 +320,11 @@ $site_email = isset($site_settings['site_email']) ? $site_settings['site_email']
                     </div>
                 </div>
                 <div class="hero-banners">
-                    <a href="#" class="hero-banner">
-                        <img src="<?= upload_url('slider_banner_1.webp') ?>" alt="Banner 1">
+                    <a href="san-pham.php" class="hero-banner">
+                        <img src="<?= upload_url('slider_banner_1.webp') ?>" alt="Khuyến mãi thiết bị tưới tiêu">
                     </a>
-                    <a href="#" class="hero-banner">
-                        <img src="<?= upload_url('slider_banner_2.webp') ?>" alt="Banner 2">
+                    <a href="san-pham.php" class="hero-banner">
+                        <img src="<?= upload_url('slider_banner_2.webp') ?>" alt="Dụng cụ làm vườn chất lượng">
                     </a>
                 </div>
             </div>
@@ -368,28 +374,56 @@ $site_email = isset($site_settings['site_email']) ? $site_settings['site_email']
                 <h2 class="section-title">Danh mục sản phẩm</h2>
                 <a href="san-pham.php" class="view-all">Xem tất cả <i class="fas fa-arrow-right"></i></a>
             </div>
+            <?php
+            // Dữ liệu mẫu khi chưa có danh mục trong DB
+            if (empty($featured_categories)) {
+                $featured_categories = array(
+                    array('name' => 'Ống tưới', 'slug' => 'ong-tuoi', 'image' => '', 'icon' => 'fas fa-water'),
+                    array('name' => 'Béc phun', 'slug' => 'bec-phun', 'image' => '', 'icon' => 'fas fa-shower'),
+                    array('name' => 'Van nước', 'slug' => 'van-nuoc', 'image' => '', 'icon' => 'fas fa-faucet'),
+                    array('name' => 'Đầu nối', 'slug' => 'dau-noi', 'image' => '', 'icon' => 'fas fa-link'),
+                    array('name' => 'Timer tưới', 'slug' => 'timer-tuoi', 'image' => '', 'icon' => 'fas fa-clock'),
+                    array('name' => 'Nhỏ giọt', 'slug' => 'nho-giot', 'image' => '', 'icon' => 'fas fa-tint'),
+                    array('name' => 'Máy bơm', 'slug' => 'may-bom', 'image' => '', 'icon' => 'fas fa-cogs'),
+                    array('name' => 'Phụ kiện', 'slug' => 'phu-kien', 'image' => '', 'icon' => 'fas fa-tools'),
+                );
+            }
+            ?>
             <div class="categories-grid">
-                <?php if (!empty($featured_categories)): ?>
-                    <?php foreach ($featured_categories as $cat): ?>
-                        <a href="danh-muc.php?slug=<?= $cat['slug'] ?>" class="category-card">
-                            <div class="category-icon">
-                                <?php if (!empty($cat['image']) && $cat['image'] != 'no'): ?>
-                                    <img src="<?= upload_url('category/' . $cat['image']) ?>" alt="<?= htmlspecialchars($cat['name']) ?>">
-                                <?php else: ?>
-                                    <i class="fas fa-leaf"></i>
-                                <?php endif; ?>
-                            </div>
-                            <h3><?= htmlspecialchars($cat['name']) ?></h3>
-                        </a>
-                    <?php endforeach; ?>
-                <?php else: ?>
-                    <p class="no-data">Chưa có danh mục</p>
-                <?php endif; ?>
+                <?php foreach ($featured_categories as $cat): ?>
+                    <a href="danh-muc.php?slug=<?= $cat['slug'] ?>" class="category-card">
+                        <div class="category-icon">
+                            <?php if (!empty($cat['image']) && $cat['image'] != 'no'): ?>
+                                <img src="<?= upload_url('category/' . $cat['image']) ?>" alt="<?= htmlspecialchars($cat['name']) ?>">
+                            <?php elseif (!empty($cat['icon'])): ?>
+                                <i class="<?= $cat['icon'] ?>"></i>
+                            <?php else: ?>
+                                <i class="fas fa-leaf"></i>
+                            <?php endif; ?>
+                        </div>
+                        <h3><?= htmlspecialchars($cat['name']) ?></h3>
+                    </a>
+                <?php endforeach; ?>
             </div>
         </div>
     </section>
 
     <!-- ========== FEATURED PRODUCTS ========== -->
+    <?php
+    // Dữ liệu mẫu khi chưa có sản phẩm nổi bật
+    if (empty($featured_products)) {
+        $featured_products = array(
+            array('name' => 'Ống tưới LDPE Phi 16mm cuộn 100m', 'slug' => 'ong-tuoi-ldpe-phi-16', 'image' => 'image1.webp', 'price' => 350000, 'sale_price' => 280000, 'is_sale' => 1, 'is_new' => 0),
+            array('name' => 'Béc phun sương 4 hướng cao cấp', 'slug' => 'bec-phun-suong-4-huong', 'image' => 'image2.webp', 'price' => 15000, 'sale_price' => 0, 'is_sale' => 0, 'is_new' => 1),
+            array('name' => 'Van điện từ 24V ren 21mm Claber', 'slug' => 'van-dien-tu-24v', 'image' => 'image10.webp', 'price' => 450000, 'sale_price' => 385000, 'is_sale' => 1, 'is_new' => 0),
+            array('name' => 'Timer tưới tự động WiFi thông minh', 'slug' => 'timer-tuoi-wifi', 'image' => 'image11.webp', 'price' => 890000, 'sale_price' => 0, 'is_sale' => 0, 'is_new' => 1),
+            array('name' => 'Đầu nối ống 16mm - Khớp nối chữ T', 'slug' => 'dau-noi-ong-16mm-t', 'image' => 'image12.webp', 'price' => 5000, 'sale_price' => 0, 'is_sale' => 0, 'is_new' => 0),
+            array('name' => 'Bộ tưới nhỏ giọt 20 đầu tưới', 'slug' => 'bo-tuoi-nho-giot-20', 'image' => 'image13.webp', 'price' => 250000, 'sale_price' => 199000, 'is_sale' => 1, 'is_new' => 0),
+            array('name' => 'Máy bơm mini 12V áp lực cao', 'slug' => 'may-bom-mini-12v', 'image' => 'image14.webp', 'price' => 320000, 'sale_price' => 0, 'is_sale' => 0, 'is_new' => 1),
+            array('name' => 'Vòi xịt rửa đa năng 7 chế độ', 'slug' => 'voi-xit-rua-da-nang', 'image' => 'image15.webp', 'price' => 85000, 'sale_price' => 65000, 'is_sale' => 1, 'is_new' => 0),
+        );
+    }
+    ?>
     <section class="section products-section">
         <div class="container">
             <div class="section-header">
@@ -397,14 +431,13 @@ $site_email = isset($site_settings['site_email']) ? $site_settings['site_email']
                 <a href="san-pham.php" class="view-all">Xem tất cả <i class="fas fa-arrow-right"></i></a>
             </div>
             <div class="products-grid">
-                <?php if (!empty($featured_products)): ?>
-                    <?php foreach ($featured_products as $product): ?>
+                <?php foreach ($featured_products as $product): ?>
                         <div class="product-card">
                             <a href="chi-tiet-san-pham.php?slug=<?= $product['slug'] ?>" class="product-image">
                                 <?php if (!empty($product['image']) && $product['image'] != 'no'): ?>
                                     <img src="<?= upload_url('product/' . $product['image']) ?>" alt="<?= htmlspecialchars($product['name']) ?>">
                                 <?php else: ?>
-                                    <img src="<?= asset_url('images/no-image.jpg') ?>" alt="No image">
+                                    <img src="<?= asset_url('images/no-image.svg') ?>" alt="Chưa có hình ảnh">
                                 <?php endif; ?>
                                 <?php if ($product['is_sale']): ?>
                                     <span class="product-badge sale">-<?= $product['price'] > 0 ? round((($product['price'] - $product['sale_price']) / $product['price']) * 100) : 0 ?>%</span>
@@ -432,14 +465,43 @@ $site_email = isset($site_settings['site_email']) ? $site_settings['site_email']
                             </div>
                         </div>
                     <?php endforeach; ?>
-                <?php else: ?>
-                    <p class="no-data">Chưa có sản phẩm</p>
-                <?php endif; ?>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CTA BANNER ========== -->
+    <section class="homepage-cta">
+        <div class="container">
+            <div class="cta-banner">
+                <div class="cta-banner-content">
+                    <span class="cta-label"><i class="fas fa-bolt"></i> Ưu đãi đặc biệt</span>
+                    <h2>Miễn phí giao hàng cho đơn từ 500K</h2>
+                    <p>Cam kết hàng chính hãng - Bảo hành 12 tháng</p>
+                    <a href="san-pham.php" class="btn btn-secondary">Mua ngay <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="cta-banner-icon">
+                    <i class="fas fa-shipping-fast"></i>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- ========== NEW PRODUCTS ========== -->
+    <?php
+    // Dữ liệu mẫu khi chưa có sản phẩm mới
+    if (empty($new_products)) {
+        $new_products = array(
+            array('name' => 'Ống co LDPE Phi 20mm chính hãng', 'slug' => 'ong-co-ldpe-phi-20', 'image' => 'image16.webp', 'price' => 8000, 'sale_price' => 0, 'is_sale' => 0, 'is_new' => 1),
+            array('name' => 'Đầu tưới nhỏ giọt bù áp 8L/h', 'slug' => 'dau-tuoi-nho-giot-bu-ap', 'image' => 'image17.webp', 'price' => 3500, 'sale_price' => 0, 'is_sale' => 0, 'is_new' => 1),
+            array('name' => 'Van khóa ống 16mm tiện lợi', 'slug' => 'van-khoa-ong-16mm', 'image' => 'image18.webp', 'price' => 6000, 'sale_price' => 0, 'is_sale' => 0, 'is_new' => 1),
+            array('name' => 'Béc tưới phun mưa 360 độ Orbit', 'slug' => 'bec-tuoi-phun-mua-360', 'image' => 'image19.webp', 'price' => 125000, 'sale_price' => 99000, 'is_sale' => 1, 'is_new' => 1),
+            array('name' => 'Bộ lọc đĩa 1 inch cho hệ thống tưới', 'slug' => 'bo-loc-dia-1-inch', 'image' => 'image20.webp', 'price' => 180000, 'sale_price' => 0, 'is_sale' => 0, 'is_new' => 1),
+            array('name' => 'Ống PE chịu áp Phi 32mm cuộn 50m', 'slug' => 'ong-pe-chiu-ap-phi-32', 'image' => 'image22.webp', 'price' => 520000, 'sale_price' => 450000, 'is_sale' => 1, 'is_new' => 1),
+            array('name' => 'Đồng hồ đo nước mini cho ống tưới', 'slug' => 'dong-ho-do-nuoc-mini', 'image' => 'image23.webp', 'price' => 95000, 'sale_price' => 0, 'is_sale' => 0, 'is_new' => 1),
+            array('name' => 'Khởi thủy ren ngoài 21mm ra ống 16', 'slug' => 'khoi-thuy-ren-ngoai-21', 'image' => 'image24.webp', 'price' => 7000, 'sale_price' => 0, 'is_sale' => 0, 'is_new' => 1),
+        );
+    }
+    ?>
     <section class="section products-section bg-light">
         <div class="container">
             <div class="section-header">
@@ -447,14 +509,13 @@ $site_email = isset($site_settings['site_email']) ? $site_settings['site_email']
                 <a href="san-pham.php" class="view-all">Xem tất cả <i class="fas fa-arrow-right"></i></a>
             </div>
             <div class="products-grid">
-                <?php if (!empty($new_products)): ?>
-                    <?php foreach ($new_products as $product): ?>
+                <?php foreach ($new_products as $product): ?>
                         <div class="product-card">
                             <a href="chi-tiet-san-pham.php?slug=<?= $product['slug'] ?>" class="product-image">
                                 <?php if (!empty($product['image']) && $product['image'] != 'no'): ?>
                                     <img src="<?= upload_url('product/' . $product['image']) ?>" alt="<?= htmlspecialchars($product['name']) ?>">
                                 <?php else: ?>
-                                    <img src="<?= asset_url('images/no-image.jpg') ?>" alt="No image">
+                                    <img src="<?= asset_url('images/no-image.svg') ?>" alt="Chưa có hình ảnh">
                                 <?php endif; ?>
                                 <span class="product-badge new">Mới</span>
                                 <button class="product-wishlist" aria-label="Yêu thích">
@@ -478,15 +539,24 @@ $site_email = isset($site_settings['site_email']) ? $site_settings['site_email']
                             </div>
                         </div>
                     <?php endforeach; ?>
-                <?php else: ?>
-                    <p class="no-data">Chưa có sản phẩm</p>
-                <?php endif; ?>
             </div>
         </div>
     </section>
 
     <!-- ========== TESTIMONIALS ========== -->
-    <?php if (!empty($feedbacks)): ?>
+    <?php
+    // Dữ liệu mẫu khi chưa có feedback trong DB
+    if (empty($feedbacks)) {
+        $feedbacks = array(
+            array('customer_name' => 'Nguyễn Văn Hùng', 'customer_title' => 'Chủ vườn cây cảnh', 'customer_image' => '', 'content' => 'Sản phẩm chất lượng tốt, giao hàng nhanh. Hệ thống tưới tự động hoạt động rất ổn định, tiết kiệm được nhiều thời gian chăm sóc vườn.', 'rating' => 5),
+            array('customer_name' => 'Trần Thị Mai', 'customer_title' => 'Nông dân sản xuất', 'customer_image' => '', 'content' => 'Đã mua béc phun và ống tưới LDPE cho vườn rau. Giá cả hợp lý, nhân viên tư vấn nhiệt tình. Sẽ ủng hộ dài lâu!', 'rating' => 5),
+            array('customer_name' => 'Lê Minh Tuấn', 'customer_title' => 'Kỹ sư nông nghiệp', 'customer_image' => '', 'content' => 'Thiết bị tưới nhỏ giọt của shop rất bền, dùng hơn 1 năm vẫn tốt. Đặc biệt timer hẹn giờ rất tiện lợi cho việc tưới tự động.', 'rating' => 5),
+            array('customer_name' => 'Phạm Thị Lan', 'customer_title' => 'Chủ trang trại', 'customer_image' => '', 'content' => 'Mình đặt trọn bộ hệ thống tưới cho trang trại 2 hecta. Đội ngũ lắp đặt chuyên nghiệp, hỗ trợ kỹ thuật tận tình.', 'rating' => 4),
+            array('customer_name' => 'Võ Đức Thắng', 'customer_title' => 'Làm vườn tại nhà', 'customer_image' => '', 'content' => 'Mua bộ tưới vườn mini cho sân thượng. Lắp đặt đơn giản, hướng dẫn chi tiết. Cây cối xanh tốt hơn hẳn nhờ tưới đều đặn.', 'rating' => 5),
+            array('customer_name' => 'Hoàng Thị Ngọc', 'customer_title' => 'Khách hàng thân thiết', 'customer_image' => '', 'content' => 'Đã mua nhiều lần ở đây. Hàng chính hãng, giá tốt nhất thị trường. Bảo hành nhanh chóng khi cần. Rất hài lòng!', 'rating' => 5),
+        );
+    }
+    ?>
     <section class="section testimonials-section">
         <div class="container">
             <div class="section-header">
@@ -522,7 +592,6 @@ $site_email = isset($site_settings['site_email']) ? $site_settings['site_email']
             </div>
         </div>
     </section>
-    <?php endif; ?>
 
     <!-- ========== FOOTER ========== -->
     <footer class="footer">
@@ -569,7 +638,7 @@ $site_email = isset($site_settings['site_email']) ? $site_settings['site_email']
         </div>
         <div class="footer-bottom">
             <div class="container">
-                <p>&copy; <?= date('Y') ?> <?= htmlspecialchars($site_name) ?>. All rights reserved.</p>
+                <p>&copy; <?= date('Y') ?> <?= htmlspecialchars($site_name) ?>. Bản quyền thuộc về <?= htmlspecialchars($site_name) ?>.</p>
             </div>
         </div>
     </footer>
